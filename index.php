@@ -17,6 +17,8 @@ if ($_SESSION["userrange"] == "" || !isset($_SESSION["userrange"]) || $_SESSION[
     <title>Página</title>
 </head>
 <body>
-    <button onclick="<?php $_SESSION["userrange"] = [];?>">Cerrar Sesión</button>
+    <a href="logout.php">
+    <button onclick>Cerrar Sesión</button>
+    </a>
 </body>
 </html>
