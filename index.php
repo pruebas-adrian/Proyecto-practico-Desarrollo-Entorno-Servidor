@@ -1,12 +1,14 @@
 <?php
-
 include 'cookie.php';
 
 if ($_SESSION["userrange"] == "" || !isset($_SESSION["userrange"]) || $_SESSION["userrange"] != "Admin") {
     header("location: formulario.php");
 }
 
-
+function cerrarSesion()
+{
+    return $_SESSION["userrange"] = [];
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +19,8 @@ if ($_SESSION["userrange"] == "" || !isset($_SESSION["userrange"]) || $_SESSION[
     <title>Página</title>
 </head>
 <body>
-    <a href="logout.php">
-    <button onclick>Cerrar Sesión</button>
-    </a>
+<form action="<?php cerrarSesion(); ?>">
+    <button>Cerrar sesión</button>
+</form>
 </body>
 </html>
