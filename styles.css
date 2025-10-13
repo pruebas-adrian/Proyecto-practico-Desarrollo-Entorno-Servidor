@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Zapfino';
+    src: url(fonts/Zapfino.woff2) format('woff2'),
+        url(fonts/Zapfino.woff) format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+body{
+    font-family: 'Zapfino';
+}
+
+
+.formulario {
+  border: 0.2rem solid black;
+  border-radius: 50px;
+  margin-top: 10rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 50vh;
+}

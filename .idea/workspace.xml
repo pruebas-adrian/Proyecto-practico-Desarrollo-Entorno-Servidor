@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14271bbb-470f-4c34-910c-236f3c2efdf1" name="Changes" comment="Arreglada forma de cerrar sesión.">
+    <list default="true" id="14271bbb-470f-4c34-910c-236f3c2efdf1" name="Changes" comment="Arreglada forma de cerrar sesión y optimizado los archivos.">
+      <change afterPath="$PROJECT_DIR$/include.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comprobar.php" beforeDir="false" afterPath="$PROJECT_DIR$/comprobar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/formulario.php" beforeDir="false" afterPath="$PROJECT_DIR$/formulario.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +21,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="PHP File" />
       </list>
     </option>
@@ -48,22 +49,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -85,7 +87,8 @@
       <workItem from="1759907223602" duration="1838000" />
       <workItem from="1759909107975" duration="26000" />
       <workItem from="1759909155545" duration="110000" />
-      <workItem from="1759920737569" duration="3702000" />
+      <workItem from="1759920737569" duration="4316000" />
+      <workItem from="1759991862049" duration="841000" />
     </task>
     <task id="LOCAL-00001" summary="Cambiada forma de eliminar la sesión en index.php">
       <option name="closed" value="true" />
@@ -95,7 +98,23 @@
       <option name="project" value="LOCAL" />
       <updated>1759920938295</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Arreglada forma de cerrar sesión.">
+      <option name="closed" value="true" />
+      <created>1759926482843</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1759926482843</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Arreglada forma de cerrar sesión y optimizado los archivos.">
+      <option name="closed" value="true" />
+      <created>1759926549472</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1759926549472</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,6 +134,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cambiada forma de eliminar la sesión en index.php" />
     <MESSAGE value="Arreglada forma de cerrar sesión." />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglada forma de cerrar sesión." />
+    <MESSAGE value="Arreglada forma de cerrar sesión y optimizado los archivos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglada forma de cerrar sesión y optimizado los archivos." />
   </component>
 </project>

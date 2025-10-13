@@ -1,5 +1,6 @@
 <?php
 include 'cookie.php';
+include 'include.php';
 
 if ($_SESSION["userrange"] == "" || !isset($_SESSION["userrange"]) || $_SESSION["userrange"] != "Admin") {
     header("location: formulario.php");
@@ -16,7 +17,8 @@ function cerrarSesion()
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página</title>
+    <title>Index</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
 <form action="<?php cerrarSesion(); ?>">

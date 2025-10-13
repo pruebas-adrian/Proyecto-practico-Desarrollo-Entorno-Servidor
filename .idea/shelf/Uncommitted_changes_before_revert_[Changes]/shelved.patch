@@ -1,0 +1,174 @@
+Index: formulario.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\ninclude 'cookie.php';\r\n\r\n?>\r\n\r\n<form action=\"comprobar.php\" method=\"GET\">\r\n    <label for=\"Usuario\">Usuario</label>\r\n    <input type=\"text\" id=\"Usuario\" name=\"Usuario\" required>\r\n    <br>\r\n    <label for=\"Contrasena\">Contraseña</label>\r\n    <input type=\"password\" id=\"Contrasena\" name=\"Contrasena\" required>\r\n    <br>\r\n    <button type=\"submit\">Enviar</button>\r\n</form>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/formulario.php b/formulario.php
+--- a/formulario.php	(revision 7b8c3e7ee3e8837f98aada718ed7eb96a9b50f04)
++++ b/formulario.php	(date 1759925073351)
+@@ -2,14 +2,17 @@
+ 
+ include 'cookie.php';
+ 
++echo "Usuario preestablecido: Pepe<br>";
++echo "Contraseña preestablecida: 1234<br>";
++
+ ?>
+ 
+ <form action="comprobar.php" method="GET">
+     <label for="Usuario">Usuario</label>
+-    <input type="text" id="Usuario" name="Usuario" required>
++    <input type="text" id="Usuario" name="Usuario" required autocomplete="off">
+     <br>
+     <label for="Contrasena">Contraseña</label>
+-    <input type="password" id="Contrasena" name="Contrasena" required>
++    <input type="password" id="Contrasena" name="Contrasena" required maxlength="8">
+     <br>
+     <button type="submit">Enviar</button>
+ </form>
+\ No newline at end of file
+Index: index.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\ninclude 'cookie.php';\r\n\r\nif ($_SESSION[\"userrange\"] == \"\" || !isset($_SESSION[\"userrange\"]) || $_SESSION[\"userrange\"] != \"Admin\") {\r\n    header(\"location: formulario.php\");\r\n}\r\n\r\n\r\n?>\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Página</title>\r\n</head>\r\n<body>\r\n    <button onclick=\"<?php $_SESSION[\"userrange\"] = [];?>\">Cerrar Sesión</button>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.php b/index.php
+--- a/index.php	(revision 7b8c3e7ee3e8837f98aada718ed7eb96a9b50f04)
++++ b/index.php	(date 1759926141339)
+@@ -1,12 +1,14 @@
+ <?php
+-
+ include 'cookie.php';
+ 
+ if ($_SESSION["userrange"] == "" || !isset($_SESSION["userrange"]) || $_SESSION["userrange"] != "Admin") {
+     header("location: formulario.php");
+ }
+ 
+-
++function cerrarSesion()
++{
++    return $_SESSION["userrange"] = [];
++}
+ ?>
+ 
+ <!DOCTYPE html>
+@@ -17,6 +19,8 @@
+     <title>Página</title>
+ </head>
+ <body>
+-    <button onclick="<?php $_SESSION["userrange"] = [];?>">Cerrar Sesión</button>
++<form action="<?php cerrarSesion(); ?>">
++    <button>Cerrar sesión</button>
++</form>
+ </body>
+ </html>
+Index: comprobar.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\ninclude 'usuario.php';\r\ninclude 'cookie.php';\r\n\r\n$_SESSION[\"userrange\"] = \"\";\r\n\r\n\r\nif (isset($_GET[\"Usuario\"])) {\r\n    if ($Usuario == $_GET[\"Usuario\"] && $Contrasena == $_GET[\"Contrasena\"]) {\r\n        $_SESSION[\"userrange\"] = \"Admin\";\r\n        header(\"location: index.php \");\r\n    }\r\n} else {\r\n    header(\"location: formulario.php\");\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/comprobar.php b/comprobar.php
+--- a/comprobar.php	(revision 7b8c3e7ee3e8837f98aada718ed7eb96a9b50f04)
++++ b/comprobar.php	(date 1759921397421)
+@@ -12,5 +12,6 @@
+         header("location: index.php ");
+     }
+ } else {
++
+     header("location: formulario.php");
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"14271bbb-470f-4c34-910c-236f3c2efdf1\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/comprobar.php\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"PHP File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;pruebas-adrian&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/pruebas-adrian/Proyecto-practico-Desarrollo-Entorno-Servidor.git&quot;,\r\n    &quot;accountId&quot;: &quot;f04dfc76-c3f3-49d8-b7b5-24b0d8381866&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"33jmqdN7cptE7gyy2aGkbbzhfFN\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PS-252.26830.95\" />\r\n        <option value=\"bundled-php-predefined-a98d8de5180a-9b563d34894c-com.jetbrains.php.sharedIndexes-PS-252.26830.95\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"14271bbb-470f-4c34-910c-236f3c2efdf1\" name=\"Changes\" comment=\"\" />\r\n      <created>1759839051622</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1759839051622</updated>\r\n      <workItem from=\"1759839053699\" duration=\"1586000\" />\r\n      <workItem from=\"1759840861939\" duration=\"174000\" />\r\n      <workItem from=\"1759905270112\" duration=\"1144000\" />\r\n      <workItem from=\"1759907223602\" duration=\"1838000\" />\r\n      <workItem from=\"1759909107975\" duration=\"26000\" />\r\n      <workItem from=\"1759909155545\" duration=\"110000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 7b8c3e7ee3e8837f98aada718ed7eb96a9b50f04)
++++ b/.idea/workspace.xml	(date 1759926141710)
+@@ -4,8 +4,11 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="14271bbb-470f-4c34-910c-236f3c2efdf1" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/comprobar.php" afterDir="false" />
++    <list default="true" id="14271bbb-470f-4c34-910c-236f3c2efdf1" name="Changes" comment="Cambiada forma de eliminar la sesión en index.php">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/comprobar.php" beforeDir="false" afterPath="$PROJECT_DIR$/comprobar.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/formulario.php" beforeDir="false" afterPath="$PROJECT_DIR$/formulario.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -45,21 +48,22 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "ModuleVcsDetector.initialDetectionPerformed": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "RunOnceActivity.git.unshallow": "true",
++    "git-widget-placeholder": "master",
++    "ignore.virus.scanning.warn.message": "true",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "settings.editor.selected.configurable": "preferences.lookFeel",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+@@ -81,7 +85,17 @@
+       <workItem from="1759907223602" duration="1838000" />
+       <workItem from="1759909107975" duration="26000" />
+       <workItem from="1759909155545" duration="110000" />
++      <workItem from="1759920737569" duration="3392000" />
+     </task>
++    <task id="LOCAL-00001" summary="Cambiada forma de eliminar la sesión en index.php">
++      <option name="closed" value="true" />
++      <created>1759920938295</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1759920938295</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -98,4 +112,8 @@
+       </map>
+     </option>
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Cambiada forma de eliminar la sesión en index.php" />
++    <option name="LAST_COMMIT_MESSAGE" value="Cambiada forma de eliminar la sesión en index.php" />
++  </component>
+ </project>
+\ No newline at end of file

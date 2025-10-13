@@ -1,3 +1,3 @@
 <?php
-$Usuario = "Pepe";
-$Contrasena = "1234";
+$Usuario = "SA7@QcsBs";
+$Contrasena = "2Jn4q*7k";
